@@ -52,7 +52,7 @@ export default new Vuex.Store({
   state: {
     cardset1: [] as Card[],
     cardset2: [] as Card[],
-    timeUsed: ''
+    timeUsed: Date
   },
   getters: {
     remainCards: state => (

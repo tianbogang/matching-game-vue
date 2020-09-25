@@ -64,7 +64,7 @@ const player = Vue.extend ({
                     const stopWatch = this.$children[0] as StopWatch;
                     if(stopWatch !== undefined) {
                         stopWatch.stop();
-                        this.$store.dispatch('setTimeUsed', stopWatch.counterDisplay);
+                        this.$store.dispatch('setTimeUsed', stopWatch.counter);
                     }
                     this.$router.push('/gameover');
                 }

@@ -1,5 +1,5 @@
 <template>
-    <span font-scale="1.5">{{ counterDisplay }}</span>
+    <span font-scale="1.5">{{ counter | timespan }}</span>
 </template>
 
 <script lang="ts">
@@ -10,7 +10,6 @@ import { Subscription, timer } from 'rxjs';
 export default class StopWatch extends Vue {
 
     public counter: Date = new Date(0,0,0,0,0,0);
-    public counterDisplay = "";
     private ticking = true;
     private tick: Subscription | null = null;
 
@@ -28,7 +27,6 @@ export default class StopWatch extends Vue {
             if (this.ticking) {
                 this.counter = new Date(0, 0, 0, 0, 0, 0);
                 this.counter.setSeconds(ellapsedCycles);
-                this.counterDisplay =  this.counter.getHours() + ':' + this.counter.getMinutes() + ':' + this.counter.getSeconds();
             }
         });
     }
