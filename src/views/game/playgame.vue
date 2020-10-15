@@ -11,7 +11,7 @@
     <div class="d-flex flex-wrap card-set">
         <template v-for="(card, index) in cardset1">
             <button class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset1(card)"></button>
-            <button class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen" v-on:click="onclikcardset1(card)">{{card.point}}</button>
+            <div class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen">{{card.point}}</div>
             <div class="btn card card-red" :key="index" v-if="card.state === CardState.OpenRed">{{card.point}}</div>
             <div class="btn card card-hidden" :key="index" v-if="card.state === CardState.Hidden"></div>
         </template>
@@ -22,7 +22,7 @@
     <div class="d-flex flex-wrap card-set">
         <template v-for="(card, index) in cardset2">
             <button class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset2(card)"></button>
-            <button class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen" v-on:click="onclikcardset2(card)">{{card.point}}</button>
+            <div class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen">{{card.point}}</div>
             <div class="btn card card-red" :key="index" v-if="card.state === CardState.OpenRed">{{card.point}}</div>
             <div class="btn card card-hidden" :key="index" v-if="card.state === CardState.Hidden"></div>
         </template>
