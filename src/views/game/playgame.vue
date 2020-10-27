@@ -10,7 +10,7 @@
 
     <div class="d-flex flex-wrap card-set">
         <template v-for="(card, index) in cardset1">
-            <button class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset1(card)"></button>
+            <div class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset1(card)"></div>
             <div class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen">{{card.point}}</div>
             <div class="btn card card-red" :key="index" v-if="card.state === CardState.OpenRed">{{card.point}}</div>
             <div class="btn card card-hidden" :key="index" v-if="card.state === CardState.Hidden"></div>
@@ -21,7 +21,7 @@
 
     <div class="d-flex flex-wrap card-set">
         <template v-for="(card, index) in cardset2">
-            <button class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset2(card)"></button>
+            <div class="btn card card-closed" :key="index" v-if="card.state === CardState.Closed" v-on:click="onclikcardset2(card)"></div>
             <div class="btn card card-green" :key="index" v-if="card.state === CardState.OpenGreen">{{card.point}}</div>
             <div class="btn card card-red" :key="index" v-if="card.state === CardState.OpenRed">{{card.point}}</div>
             <div class="btn card card-hidden" :key="index" v-if="card.state === CardState.Hidden"></div>
@@ -93,8 +93,8 @@ export default player;
     }
     to {
       transform: rotateY(0deg);
-      color: white;
-      background-color: green;
+      color: green;
+      background-color: white;
     }
 }
 
@@ -108,8 +108,8 @@ export default player;
 }
 
 @keyframes spin-to-hidden {
-    from {
-      background-color: green;
+    from {      
+      background-color: white;
     }
     to {
       background-color: transparent;
@@ -118,17 +118,18 @@ export default player;
 }
 
 .card {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 100px;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none !important;
-    border: 0px solid;
+    border-radius: 8px;
 }
 
 .card:focus, .card:active {
@@ -137,19 +138,23 @@ export default player;
 }
 
 .card-closed {
-    background-color: white;
+    border: 4px solid white;
+    border-radius: 8px;
+    background-color: #458ca9;
 }
 
 .card-green {
-    color: white;
-    background-color: green;
+    color: green;
+    background-color: white;
     animation: spin-to-green 0.5s linear;
+    border: 0px solid;
 }
 
 .card-red {
-    color: white;
-    background-color: red;
+    color: red;
+    background-color: white;
     animation: spin-to-red 0.5s linear;
+    border: 0px solid;
 }
 
 .card-hidden {
